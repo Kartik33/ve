@@ -18,16 +18,18 @@ class VariableElimination:
         while self.e_v:
             
             var = self.e_v.pop()
-            print("eliminating " , var)
+            print("\n\n------eliminating " , var, "------------\n")
             #tables that has eliminating varibale in them
             var_linked_tables = self.get_ev_linked_tables(var)
-            for i in var_linked_tables:
-                print(i.name)
+            print("---->linked tables are")
+            for table in var_linked_tables:
+                print( table.name )
+            print("\n")
             broadcast, s, dimen , name , s_dimen, ev_linked_var = self.gen_factor(var_linked_tables , var )
             factor = self.multi(broadcast, var_linked_tables.copy())
-            #print(factor , s)
+            print("-->factor generated is \n\n" , factor , "\n" )
             s = self.sum(factor, s , s_dimen, name)
-            print("for this iteration I think you are good " , s.name, s.table)
+            print("-->after summing \n\n" , s.name, s.table)
             
             self.update(var, ev_linked_var, s ,var_linked_tables)
             """
@@ -128,7 +130,7 @@ class VariableElimination:
 
     def update(self, ev, linked_var , new_table, linked_tables):
 
-        print(ev)
+        #print(ev)
         x = linked_var.copy()
         while x:
             i = x.pop()
@@ -140,9 +142,6 @@ class VariableElimination:
                         i.linked_tables.remove(j)
                 i.linked_tables.append(new_table)
                         
-
- 
-
         for a,i in enumerate(variables):
             if i.name == ev:
                 variables.pop(a)
