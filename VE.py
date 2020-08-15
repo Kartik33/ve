@@ -1,13 +1,5 @@
 from init_problem import CPT, variables , tables , np
 
-#print(tables[0].table , "\n\n", tables[1].table)
-
-
-"""
-for i in variables:
-    for j in i.linked_tables:
-        print(j.name)
-"""
 class VariableElimination:
 
     def __init__(self, e_v):
@@ -41,7 +33,6 @@ class VariableElimination:
         while var_linked_tables:
             t2 = broadcast[var_linked_tables.pop()]
             t1 = np.multiply(t1,t2)
-
         return t1
 
     def sum(self, factor, s, dimen, name, ):
@@ -51,7 +42,6 @@ class VariableElimination:
         for i in s:
             for j in s[i]:
                 x.table[i] += factor[j]
-        
         return x
 
     def get_ev_linked_tables(self, e_v):
@@ -63,11 +53,8 @@ class VariableElimination:
     def gen_factor(self , linked_tables,e_v):
 
         name, dimen, temp_var , s_dimen = self.get_dimen(linked_tables, e_v)
-        
         grid = np.ndindex(tuple(dimen))
-        #print(name)
         broadcast = {}
-
         for i in linked_tables:
             broadcast[i] = np.empty((dimen))
 
@@ -98,7 +85,6 @@ class VariableElimination:
                     else:
                         s[abc] = [i]
                     break
-       
         return broadcast , s , dimen, name , s_dimen, temp_var
 
     def get_dimen(self , linked_tables , e_v):
@@ -139,9 +125,6 @@ class VariableElimination:
                     if j in linked_tables:
                         i.linked_tables.remove(j)
                 i.linked_tables.append(new_table)
-                        
-
- 
 
         for a,i in enumerate(variables):
             if i.name == ev:
