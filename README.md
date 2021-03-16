@@ -1,6 +1,6 @@
 # Variable Elimination for Bayesian Network
 
-To input the probelm instances in init_probelm.py follow the steps below
+Initalise the probability tables in init_probelm.py as follows
 
 Initalise a new variable<br>`VariableName = Variable("VariableName")`
  
