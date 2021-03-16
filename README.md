@@ -1,5 +1,7 @@
 # Variable Elimination for Bayesian Network
 
+### Numpy is required
+
 Initalise the probability tables in init_probelm.py as follows
 
 Initalise a new variable<br>`VariableName = Variable("VariableName")`
