@@ -2,15 +2,15 @@
 
 To input the probelm instances in init_probelm.py follow the steps below
 
-this will initialise a new variable<br>`VariableName = Variable("VariableName")`
+Initalise a new variable<br>`VariableName = Variable("VariableName")`
  
- must be an int equal to the number of columns<br>`VariableName.domain_size = `
+ Columns: Int<br>`VariableName.domain_size = `
 
- this will initalise a new table object <br>`tableName = CPT("TableName")     `            
+ Initalise Table object<br>`tableName = CPT("TableName")     `            
  
- a list of all the variables linked to this table <br>`tableName.linkedVariables = []`
+ List of all the variables linked to the table <br>`tableName.linkedVariables = []`
  
- a list of all the tables that uses this variable<br>`VariableName.linked_tables = []`
+ List of all the tables that uses the variable<br>`VariableName.linked_tables = []`
  
  Finally after initialsing all the variabel and table objects provide a variable elimination order in the last line of VE.py<br> `x = VariableElimination(["A" , "D" , "B"])`
  
